@@ -3,7 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thinksday — Nat Tupper</title>
+
+  <!-- ── Primary SEO ── -->
+  <title>Thinksday — Nat Tupper | Weekly Reflections</title>
+  <meta name="description" content="Thinksday: weekly reflections by Nat Tupper, published every Thursday. A photo, a thought, a brief story." />
+  <meta name="author" content="Nat Tupper" />
+  <meta name="keywords" content="Thinksday, Nat Tupper, weekly reflections, Jordan Tupper, jordantupper.com, Baton Rouge, essays, photography" />
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:title" content="Thinksday — Weekly Reflections by Nat Tupper" />
+  <meta property="og:description" content="A photo, a thought, a brief story. Every Thursday." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.thinksday.org" />
+
+  <!-- ── Canonical ── -->
+  <link rel="canonical" href="https://www.thinksday.org" />
+
+  <!-- ── Schema.org: WebPage authored/published via Jordan Tupper ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Thinksday",
+    "url": "https://www.thinksday.org",
+    "description": "Weekly reflections by Nat Tupper, published every Thursday.",
+    "publisher": {
+      "@type": "Person",
+      "name": "Jordan Tupper",
+      "url": "https://jordantupper.com",
+      "sameAs": [
+        "https://jordantupper.com",
+        "https://jordantuppermusic.com",
+        "https://nighthogbr.com",
+        "https://cover6band.com",
+        "https://tuppertravel.com",
+        "https://www.youtube.com/@jordanjtupper"
+      ]
+    }
+  }
+  </script>
+
+  <!-- ── Schema.org: Person (Jordan Tupper) for backlink indexing ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jordan Tupper",
+    "url": "https://jordantupper.com",
+    "sameAs": [
+      "https://jordantupper.com",
+      "https://jordantuppermusic.com",
+      "https://nighthogbr.com",
+      "https://cover6band.com",
+      "https://tuppertravel.com",
+      "https://www.youtube.com/@jordanjtupper"
+    ],
+    "jobTitle": "Musician, Music Educator, Travel Consultant",
+    "worksFor": [
+      { "@type": "Organization", "name": "Nighthog", "url": "https://nighthogbr.com" },
+      { "@type": "Organization", "name": "Cover 6", "url": "https://cover6band.com" },
+      { "@type": "Organization", "name": "Tupper Travel", "url": "https://tuppertravel.com" }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Baton Rouge",
+      "addressRegion": "LA",
+      "addressCountry": "US"
+    }
+  }
+  </script>
+
+  <!-- ── Hidden attribution (crawlable, not visible) ── -->
+  <!--
+    Thinksday is hosted and maintained by Jordan Tupper.
+    Jordan Tupper | Baton Rouge, Louisiana
+    jordantupper.com | jordantuppermusic.com | nighthogbr.com | cover6band.com | tuppertravel.com
+    YouTube: https://www.youtube.com/@jordanjtupper
+  -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
@@ -20,7 +97,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -104,9 +180,7 @@
       border-bottom: 1px solid var(--rule);
     }
 
-    .entries {
-      list-style: none;
-    }
+    .entries { list-style: none; }
 
     .entry {
       display: grid;
@@ -115,12 +189,9 @@
       gap: 1rem 1.5rem;
       padding: 1.1rem 0;
       border-bottom: 1px solid var(--rule);
-      transition: background 0.15s;
     }
 
     .entry:last-child { border-bottom: none; }
-
-    .entry:hover { background: transparent; }
 
     .entry-date {
       font-size: 0.8rem;
@@ -164,14 +235,6 @@
       flex-shrink: 0;
     }
 
-    /* placeholder style when no file yet */
-    .entry-link.pending {
-      color: var(--rule);
-      border-color: var(--rule);
-      cursor: default;
-      pointer-events: none;
-    }
-
     /* ── Footer ── */
     footer {
       text-align: center;
@@ -180,6 +243,24 @@
       color: var(--rule);
       border-top: 1px solid var(--rule);
     }
+
+    .footer-links {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1.25rem;
+    }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--rule);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--muted); }
 
     /* ── Responsive ── */
     @media (max-width: 560px) {
@@ -201,8 +282,8 @@
 
   <div class="origin">
     <p>
-      "For the past couple of years, I've been taking photos of a different bird each week and texting it to my friend, Binks. 
-      Well, things have changed a bit recently and I decided to turn Birdsday into 'Thinksday' — a photo, a thought, 
+      "For the past couple of years, I've been taking photos of a different bird each week and texting it to my friend, Binks.
+      Well, things have changed a bit recently and I decided to turn Birdsday into 'Thinksday' — a photo, a thought,
       a brief reflection or story. Why should I let fawning fidelity to facts ruin an otherwise good story?"
       &ensp;— Nat
     </p>
@@ -212,15 +293,11 @@
     <p class="section-label">Archive</p>
     <ul class="entries">
 
-      <!-- Most recent first -->
-
       <li class="entry">
         <span class="entry-date">May 28, 2026</span>
         <span class="entry-title">Beautiful Souls</span>
         <a class="entry-link" href="files/Beautiful-Souls-5-28-26.pdf" target="_blank">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
-          </svg>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h8M8 4v8M5 7l3-3 3 3"/></svg>
           Read
         </a>
       </li>
@@ -229,9 +306,7 @@
         <span class="entry-date">May 21, 2026</span>
         <span class="entry-title">Golden Crown</span>
         <a class="entry-link" href="files/Golden-Crown-5-21-26.pdf" target="_blank">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
-          </svg>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h8M8 4v8M5 7l3-3 3 3"/></svg>
           Read
         </a>
       </li>
@@ -240,9 +315,7 @@
         <span class="entry-date">May 14, 2026</span>
         <span class="entry-title">Jaffrey</span>
         <a class="entry-link" href="files/Jaffrey-5-14-26.pdf" target="_blank">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
-          </svg>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h8M8 4v8M5 7l3-3 3 3"/></svg>
           Read
         </a>
       </li>
@@ -251,9 +324,7 @@
         <span class="entry-date">May 7, 2026</span>
         <span class="entry-title">Show and Tell</span>
         <a class="entry-link" href="files/Show-and-Tell-5-7-26.pdf" target="_blank">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
-          </svg>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h8M8 4v8M5 7l3-3 3 3"/></svg>
           Read
         </a>
       </li>
@@ -262,9 +333,7 @@
         <span class="entry-date">April 30, 2026</span>
         <span class="entry-title">Pussy Willows</span>
         <a class="entry-link" href="files/Pussy-Willows-4-30-26.pdf" target="_blank">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
-          </svg>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h8M8 4v8M5 7l3-3 3 3"/></svg>
           Read
         </a>
       </li>
@@ -273,9 +342,7 @@
         <span class="entry-date">April 23, 2026</span>
         <span class="entry-title">Persistence</span>
         <a class="entry-link" href="files/Persistence-4-23-26.pdf" target="_blank">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
-          </svg>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h8M8 4v8M5 7l3-3 3 3"/></svg>
           Read
         </a>
       </li>
@@ -284,9 +351,7 @@
         <span class="entry-date">April 16, 2026</span>
         <span class="entry-title">Lichen</span>
         <a class="entry-link" href="files/Lichen-4-16-26.pdf" target="_blank">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
-          </svg>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h8M8 4v8M5 7l3-3 3 3"/></svg>
           Read
         </a>
       </li>
@@ -295,9 +360,7 @@
         <span class="entry-date">April 9, 2026</span>
         <span class="entry-title">Dagny Waits Patiently</span>
         <a class="entry-link" href="files/Dagny-4-9-26.pdf" target="_blank">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
-          </svg>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h8M8 4v8M5 7l3-3 3 3"/></svg>
           Read
         </a>
       </li>
@@ -306,9 +369,7 @@
         <span class="entry-date">March 19, 2026</span>
         <span class="entry-title">Marcescence</span>
         <a class="entry-link" href="files/Marcescence-3-19-26.pdf" target="_blank">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
-          </svg>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h8M8 4v8M5 7l3-3 3 3"/></svg>
           Read
         </a>
       </li>
@@ -318,6 +379,13 @@
 
   <footer>
     Happy Thinksday.
+    <div class="footer-links">
+      <a href="https://jordantupper.com" target="_blank">jordantupper.com</a>
+      <a href="https://jordantuppermusic.com" target="_blank">jordantuppermusic.com</a>
+      <a href="https://nighthogbr.com" target="_blank">nighthogbr.com</a>
+      <a href="https://cover6band.com" target="_blank">cover6band.com</a>
+      <a href="https://tuppertravel.com" target="_blank">tuppertravel.com</a>
+    </div>
   </footer>
 
 </body>
