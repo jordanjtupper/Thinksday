@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thinksday — Nat Tupper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink:      #1c1a17;
+      --muted:    #6b6458;
+      --accent:   #4a7c59;
+      --rule:     #d6cfc4;
+      --bg:       #faf8f4;
+      --card-bg:  #ffffff;
+      --shadow:   rgba(60, 50, 30, 0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      padding: 4rem 2rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      background: var(--card-bg);
+    }
+
+    .eyebrow {
+      font-family: 'Lora', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.8rem, 7vw, 4.5rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      color: var(--ink);
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .byline {
+      margin-top: 0.75rem;
+      font-size: 1rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── Origin story ── */
+    .origin {
+      max-width: 640px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .origin p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      border-left: 3px solid var(--accent);
+      padding-left: 1.25rem;
+      font-style: italic;
+    }
+
+    /* ── Archive list ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    .section-label {
+      font-family: 'Lora', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .entries {
+      list-style: none;
+    }
+
+    .entry {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      align-items: center;
+      gap: 1rem 1.5rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.15s;
+    }
+
+    .entry:last-child { border-bottom: none; }
+
+    .entry:hover { background: transparent; }
+
+    .entry-date {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .entry-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .entry-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: 'Lora', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .entry-link:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .entry-link svg {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+    }
+
+    /* placeholder style when no file yet */
+    .entry-link.pending {
+      color: var(--rule);
+      border-color: var(--rule);
+      cursor: default;
+      pointer-events: none;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--rule);
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 560px) {
+      .entry {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+      }
+      .entry-link { align-self: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p class="eyebrow">Every Thursday</p>
+    <h1>Thinks<em>day</em></h1>
+    <p class="byline">weekly reflections by Nat Tupper</p>
+  </header>
+
+  <div class="origin">
+    <p>
+      "For the past couple of years, I've been taking photos of a different bird each week and texting it to my friend, Binks. 
+      Well, things have changed a bit recently and I decided to turn Birdsday into 'Thinksday' — a photo, a thought, 
+      a brief reflection or story. Why should I let fawning fidelity to facts ruin an otherwise good story?"
+      &ensp;— Nat
+    </p>
+  </div>
+
+  <main>
+    <p class="section-label">Archive</p>
+    <ul class="entries">
+
+      <!-- Most recent first -->
+
+      <li class="entry">
+        <span class="entry-date">May 28, 2026</span>
+        <span class="entry-title">Beautiful Souls</span>
+        <a class="entry-link" href="files/Beautiful-Souls-5-28-26.pdf" target="_blank">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
+          </svg>
+          Read
+        </a>
+      </li>
+
+      <li class="entry">
+        <span class="entry-date">May 21, 2026</span>
+        <span class="entry-title">Golden Crown</span>
+        <a class="entry-link" href="files/Golden-Crown-5-21-26.pdf" target="_blank">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
+          </svg>
+          Read
+        </a>
+      </li>
+
+      <li class="entry">
+        <span class="entry-date">May 14, 2026</span>
+        <span class="entry-title">Jaffrey</span>
+        <a class="entry-link" href="files/Jaffrey-5-14-26.pdf" target="_blank">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
+          </svg>
+          Read
+        </a>
+      </li>
+
+      <li class="entry">
+        <span class="entry-date">May 7, 2026</span>
+        <span class="entry-title">Show and Tell</span>
+        <a class="entry-link" href="files/Show-and-Tell-5-7-26.pdf" target="_blank">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
+          </svg>
+          Read
+        </a>
+      </li>
+
+      <li class="entry">
+        <span class="entry-date">April 30, 2026</span>
+        <span class="entry-title">Pussy Willows</span>
+        <a class="entry-link" href="files/Pussy-Willows-4-30-26.pdf" target="_blank">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
+          </svg>
+          Read
+        </a>
+      </li>
+
+      <li class="entry">
+        <span class="entry-date">April 23, 2026</span>
+        <span class="entry-title">Persistence</span>
+        <a class="entry-link" href="files/Persistence-4-23-26.pdf" target="_blank">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
+          </svg>
+          Read
+        </a>
+      </li>
+
+      <li class="entry">
+        <span class="entry-date">April 16, 2026</span>
+        <span class="entry-title">Lichen</span>
+        <a class="entry-link" href="files/Lichen-4-16-26.pdf" target="_blank">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
+          </svg>
+          Read
+        </a>
+      </li>
+
+      <li class="entry">
+        <span class="entry-date">April 9, 2026</span>
+        <span class="entry-title">Dagny Waits Patiently</span>
+        <a class="entry-link" href="files/Dagny-4-9-26.pdf" target="_blank">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
+          </svg>
+          Read
+        </a>
+      </li>
+
+      <li class="entry">
+        <span class="entry-date">March 19, 2026</span>
+        <span class="entry-title">Marcescence</span>
+        <a class="entry-link" href="files/Marcescence-3-19-26.pdf" target="_blank">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12h8M8 4v8M5 7l3-3 3 3"/>
+          </svg>
+          Read
+        </a>
+      </li>
+
+    </ul>
+  </main>
+
+  <footer>
+    Happy Thinksday.
+  </footer>
+
+</body>
+</html>
