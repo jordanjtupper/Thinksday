@@ -293,6 +293,76 @@
     .entry-thumb {
       cursor: zoom-in;
     }
+
+    /* ── Comment section ── */
+    .comment-section {
+      max-width: 640px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+    }
+
+    .comment-section h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .comment-section p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+
+    .comment-section input,
+    .comment-section textarea {
+      width: 100%;
+      font-family: 'Lora', Georgia, serif;
+      font-size: 0.95rem;
+      color: var(--ink);
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 0.65rem 0.85rem;
+      margin-bottom: 0.75rem;
+      outline: none;
+      transition: border-color 0.15s;
+      resize: vertical;
+    }
+
+    .comment-section input:focus,
+    .comment-section textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .comment-section textarea {
+      min-height: 110px;
+    }
+
+    .comment-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Lora', Georgia, serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: transparent;
+      border: 1px solid var(--accent);
+      padding: 0.4rem 1.1rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .comment-btn:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
   </style>
 </head>
 <body>
@@ -442,6 +512,29 @@
       <a href="https://www.youtube.com/@jordanjtupper" target="_blank">YouTube</a>
     </div>
   </footer>
+
+
+  <!-- Comment Section -->
+  <div class="comment-section">
+    <h2>Leave a note for Nat</h2>
+    <p>Your message will open in your email client, addressed to Nat directly.</p>
+    <input type="text" id="commenter-name" placeholder="Your name" />
+    <textarea id="commenter-message" placeholder="Your message..."></textarea>
+    <button class="comment-btn" onclick="sendComment()">
+      Send to Nat
+    </button>
+  </div>
+
+  <script>
+    function sendComment() {
+      var name = document.getElementById('commenter-name').value.trim();
+      var message = document.getElementById('commenter-message').value.trim();
+      if (!message) { alert('Please write a message first.'); return; }
+      var subject = encodeURIComponent('A note from Thinksday' + (name ? ' — ' + name : ''));
+      var body = encodeURIComponent((name ? 'From: ' + name + '\n\n' : '') + message);
+      window.location.href = 'mailto:nat@thinksday.org?subject=' + subject + '&body=' + body;
+    }
+  </script>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
