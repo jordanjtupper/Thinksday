@@ -520,19 +520,23 @@
     <p>Your message will open in your email client, addressed to Nat directly.</p>
     <input type="text" id="commenter-name" placeholder="Your name" />
     <textarea id="commenter-message" placeholder="Your message..."></textarea>
-    <button class="comment-btn" onclick="sendComment()">
+    <a class="comment-btn" id="send-btn" href="#" onclick="return sendComment()">
       Send to Nat
-    </button>
+    </a>
   </div>
 
   <script>
     function sendComment() {
       var name = document.getElementById('commenter-name').value.trim();
       var message = document.getElementById('commenter-message').value.trim();
-      if (!message) { alert('Please write a message first.'); return; }
+      if (!message) { alert('Please write a message first.'); return false; }
       var subject = encodeURIComponent('A note from Thinksday' + (name ? ' — ' + name : ''));
-      var body = encodeURIComponent((name ? 'From: ' + name + '\n\n' : '') + message);
-      window.location.href = 'mailto:nat@thinksday.org?subject=' + subject + '&body=' + body;
+      var body = encodeURIComponent((name ? 'From: ' + name + '
+
+' : '') + message);
+      var link = document.getElementById('send-btn');
+      link.href = 'mailto:nat@thinksday.org?subject=' + subject + '&body=' + body;
+      return true;
     }
   </script>
 
