@@ -170,10 +170,10 @@
 
     .entry {
       display: grid;
-      grid-template-columns: 60px 90px 1fr auto;
+      grid-template-columns: 60px minmax(132px, 150px) minmax(0, 1fr) auto;
       align-items: center;
-      gap: 0.75rem 1.25rem;
-      padding: 0.9rem 0;
+      gap: 0.75rem 1rem;
+      padding: 0.95rem 0;
       border-bottom: 1px solid var(--rule);
     }
 
@@ -197,10 +197,12 @@
     }
 
     .entry-date {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--muted);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.035em;
       white-space: nowrap;
+      line-height: 1.25;
+      padding-right: 0.35rem;
     }
 
     .entry-title {
@@ -208,6 +210,7 @@
       font-size: 1.1rem;
       font-weight: 400;
       color: var(--ink);
+      min-width: 0;
     }
 
     .entry-link {
@@ -255,9 +258,9 @@
 
     .footer-links a:hover { color: var(--rule); }
 
-    @media (max-width: 580px) {
-      .entry { grid-template-columns: 50px 1fr auto; grid-template-rows: auto auto; }
-      .entry-date { grid-column: 2; grid-row: 1; }
+    @media (max-width: 660px) {
+      .entry { grid-template-columns: 50px 1fr auto; grid-template-rows: auto auto; gap: 0.25rem 0.85rem; }
+      .entry-date { grid-column: 2; grid-row: 1; padding-right: 0; }
       .entry-title { grid-column: 2; grid-row: 2; }
       .entry-thumb, .entry-thumb-placeholder { grid-row: 1 / span 2; }
       .entry-link { grid-column: 3; grid-row: 1 / span 2; align-self: center; }
@@ -379,6 +382,16 @@
 <main>
 <p class="section-label">Archive</p>
 <ul class="entries">
+
+<li class="entry">
+<img alt="Hmmmmm" class="entry-thumb" onclick="openLightbox('files/Hmmmmm.jpg', 'Hmmmmm')" src="files/Hmmmmm.jpg"/>
+<span class="entry-date">September 24, 2026</span>
+<span class="entry-title">Hmmmmm</span>
+<a class="entry-link" href="files/Hmmmmm-9-24-26.pdf" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 16 16"><path d="M4 12h8M8 4v8M5 7l3-3 3 3"></path></svg>Read
+  </a>
+</li>
+<!-- ★ NEW ENTRY — Hmmmmm 9/24/26 ★ -->
 <li class="entry">
 <img alt="Unexpected Appearances" class="entry-thumb" onclick="openLightbox('files/Unexpected_Appearances.jpg', 'Unexpected Appearances')" src="files/Unexpected_Appearances.jpg"/>
 <span class="entry-date">September 17, 2026</span>
@@ -644,3 +657,5 @@
   </script>
 </body>
 </html>
+
+
